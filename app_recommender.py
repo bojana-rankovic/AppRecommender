@@ -2,7 +2,7 @@
 """
 Created on Thu Jun 22 20:14:00 2017
 
-@author: 05t0J4X
+@author: bojana-rankovic
 """
 import pandas as pd
 users = {}
