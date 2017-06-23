@@ -5,6 +5,9 @@ Created on Thu Jun 22 20:14:00 2017
 @author: bojana-rankovic
 """
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
 users = {}
 
 def manhattan(rating1, rating2):
@@ -47,7 +50,7 @@ class recommender:
         
         self.data = {}
         dtypes = {'user':'int64','item':'int64','cnt':'int64','daytime':'str',	'weekday':'str', 'isweekend':'str',	'homework':'str','cost':'str','weather':'str','country':'str','city':'int64'}
-        read_data = pd.read_csv('C:/Users/Nikola/Documents/Bojana/MS/Inteligentni/frappe/frappe/frappe.csv',sep='\t',dtype = dtypes)
+        read_data = pd.read_csv('frappe/frappe/frappe.csv',sep='\t',dtype = dtypes)
         row_count = len(read_data)
         
         
@@ -63,7 +66,7 @@ class recommender:
             self.data[user]=currentRatings
             
         dtypes_item ={'item':'int64','package':'str','category':'str','name':'str'}    
-        item_data = pd.read_csv('C:/Users/Nikola/Documents/Bojana/MS/Inteligentni/frappe/frappe/meta.csv',sep='\t',dtype = dtypes_item)
+        item_data = pd.read_csv('frappe/frappe/meta.csv',sep='\t',dtype = dtypes_item)
         row_count = len(item_data)
        
  
