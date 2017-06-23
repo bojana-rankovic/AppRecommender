@@ -33,7 +33,7 @@ The Pearson Correlation Coefficient is a measure of correlation between two vari
 ![alt](https://wikimedia.org/api/rest_v1/media/math/render/svg/bd1ccc2979b0fd1c1aec96e386f686ae874f9ec0) 
 with the sample mean being:  ![alt](https://wikimedia.org/api/rest_v1/media/math/render/svg/ac7289290243ac81a5db64d7ad3e75c72536941d)
  
-and analogously for ![alt](https://wikimedia.org/api/rest_v1/media/math/render/svg/6b298744237368f34e61ff7dc90b34016a7037af)
+and analogously for ![alt](https://wikimedia.org/api/rest_v1/media/math/render/svg/6b298744237368f34e61ff7dc90b34016a7037af).
 
 ## 4. Technical realization
 This application is written in Python.  
