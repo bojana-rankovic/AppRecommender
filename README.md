@@ -39,7 +39,7 @@ and analogously for ![alt](https://wikimedia.org/api/rest_v1/media/math/render/s
 This application is written in Python.  
 The pandas package has been imported for reading and manipulating the csv file with the loadDataSet function inside the recommender class.   
 The overall usage history of application is recorded inside the dictionary which, because of its hashable  nature, allowed to join together users and all of their used apps in a most convenient form for recommendation.   
-The recommender class contains the function which computes the nearest neighbors, in this case, the most similar users. This function is being used in recommend function which requests user id as an input parameter and returns k application which are best suited for the given user.  
+The recommender class contains the function which computes the nearest neighbors, in this case, the most similar users. This function is being used in recommend function which requests user id as an input parameter and returns k applications which are best suited for the given user.  
 
 ## 5. Acknowledgements
 This application has been developed as a part of the project assignment for the subject Intelligent Systems at the Faculty of Organization Sciences, University of Belgrade, Serbia.  
