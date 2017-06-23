@@ -7,7 +7,7 @@ The dataset needed for this project was extracted from this location: http://bal
 The recommendation system has been set to use the Pearson correlation coefficient to calculate similarity between users based on their download history of apps. The algorithm recommends k apps with the highest value for the correlation coefficient, where k is set to be 5 in the given solution, but can be adjusted for different implementations.
 
 ## 2. Dataset
-The dataset has been split into two files that contain coma separated values (csv). For the implementation of recommendation algorithms, the three most important parts are item, user and rating, which in this case, is represented by the history of users download of certain app.
+The dataset has been split into two files that contain coma separated values (csv). For the implementation of recommendation algorithms, the three most important parts are item, user and rating, which in this case, is represented by the history of user's interaction with certain app.
 The first file: ''frappe.csv'' contains 11 columns and 96202 rows which represent the user's history with mobile apps. 
 The columns it contains are:  
 
