@@ -62,17 +62,16 @@ class recommender:
             currentRatings[item]=count
             self.data[user]=currentRatings
             
-        dtypes_item ={'item':'int64','package':'str','category':'str'}    
+        dtypes_item ={'item':'int64','package':'str','category':'str','name':'str'}    
         item_data = pd.read_csv('C:/Users/Nikola/Documents/Bojana/MS/Inteligentni/frappe/frappe/meta.csv',sep='\t',dtype = dtypes_item)
         row_count = len(item_data)
-        print(item_data)
-        print(row_count)
+       
  
         for i in range(1, row_count):
              item_id = item_data.loc[i,'item']
-             package = item_data.loc[i,'package']
              category = item_data.loc[i,'category']
-             title = package + ' in category: '+category
+             name = item_data.loc[i,'name']
+             title = name +  ' in category: ' + category
              self.itemId2ItemName[item_id]=title
         
        
@@ -149,4 +148,4 @@ class recommender:
 
 r = recommender(users)
 r.loadDataset()
-print(r.recommend(5))
+print(r.recommend(16))
