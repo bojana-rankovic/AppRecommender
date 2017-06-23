@@ -30,10 +30,9 @@ The second file used is ''meta.csv'' and it contains more detailed information a
 The main idea behind this recommender system is to explore the dataset to discover the similar users to a user being suggested an application, so it can recommend the items those users marked as useful according to their usage history. Applications which would then be suggested should not already be used by user for which the recommendation is being built. Instead, the first k applications sorted by the biggest predicted score would be recommended. The metric that is used for determining the similarity between users is Pearson correlation coefficient. 
 
 The Pearson Correlation Coefficient is a measure of correlation between two variables (in this specific case the correlation between two users). It ranges between -1 and 1 inclusive. 1 indicates perfect agreement. -1 indicates perfect disagreement. This way we can use it to find the individual who is most similar to the person we are interested in. The formula for the Pearson Correlation Coefficient, if we have one dataset {x1,...,xn} containing n values and another dataset {y1,...,yn} containing n values then that formula for r is:  
-![alt](https://wikimedia.org/api/rest_v1/media/math/render/svg/bd1ccc2979b0fd1c1aec96e386f686ae874f9ec0) 
+![alt](https://wikimedia.org/api/rest_v1/media/math/render/svg/bd1ccc2979b0fd1c1aec96e386f686ae874f9ec0)   
 with the sample mean being:  
-![alt](https://wikimedia.org/api/rest_v1/media/math/render/svg/ac7289290243ac81a5db64d7ad3e75c72536941d)   
-and analogously for ![alt](https://wikimedia.org/api/rest_v1/media/math/render/svg/6b298744237368f34e61ff7dc90b34016a7037af).
+![alt](https://wikimedia.org/api/rest_v1/media/math/render/svg/ac7289290243ac81a5db64d7ad3e75c72536941d) and analogously for ![alt](https://wikimedia.org/api/rest_v1/media/math/render/svg/6b298744237368f34e61ff7dc90b34016a7037af).
 
 ## 4. Technical realization
 This application is written in Python.  
