@@ -112,7 +112,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Recommender";
             this.ResumeLayout(false);
             this.PerformLayout();
 
