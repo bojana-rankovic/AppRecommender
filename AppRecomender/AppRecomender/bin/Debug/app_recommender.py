@@ -10,12 +10,7 @@ import pandas as pd
 
 users = {}
 
-def manhattan(rating1, rating2):
-    distance=0
-    for key in rating1:
-        if key in rating2:
-            distance+=abs(rating1[key]-rating2[key])
-    return distance        
+     
 
 
 
@@ -42,6 +37,8 @@ class recommender:
             self.fn = self.cosine_distance
         if self.metric == 'minkowski':
             self.fn = self.minkowski
+        if self.metric == 'manhattan':
+            self.fn = self.manhattan
             
 
         if type(data).__name__ == 'dict':
@@ -66,18 +63,15 @@ class recommender:
         self.frape_csv = self.frape_csv.groupby( [ 'user', 'item'] ).size().to_frame(name = 'count').reset_index()
 
         row_count_frape = len(self.frape_csv)
-        #self.frape_csv['index'] = range(1, row_count_frape + 1)
         
         row_count_meta = len(self.meta_csv)
-        print(row_count_frape)
-        print(row_count_meta)
         self.maxValue = self.frape_csv['count'].max()
         self.minValue = self.frape_csv['count'].min()
-        print(self.maxValue)
+        
         for i in range(0,row_count_frape):
             user = self.frape_csv.iloc[i, 0]             
             item = self.frape_csv.iloc[i, 1]                            
-            count = self.frape_csv.iloc[i, 2]
+            count = self.frape_csv.loc[i, 'count']
             if user in self.data:
                 currentRatings = self.data[user]
             else:
@@ -96,13 +90,23 @@ class recommender:
              self.itemId2ItemName[item_id]= title
              self.itemId2ItemIcon[item_id] = self.meta_csv.iloc[i,5] 
        
+    def manhattan(self,rating1, rating2):
+        distance=0
+        for key in rating1:
+            if key in rating2:
+                x = 1 + (rating1[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
+                y = 1 + (rating2[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
+                distance+=abs(x-y)
+        return distance 
     
-    def minkowski(self, rating1, rating2, r=2):
+    def minkowski(self, rating1, rating2, r=1):
         distance = 0
         commonRating = False
         for key in rating1:
             if key in rating2:
-                distance+=pow((rating1[key]-rating2[key]),r)
+                x = 1 + (rating1[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
+                y = 1 + (rating2[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
+                distance+=pow((x-y),r)
                 commonRating = True
         if commonRating: return pow(distance,1/r)
         else: return 0
@@ -135,8 +139,8 @@ class recommender:
         n = 0
         for key in rating1:
             if key in rating2:
-                x =rating1[key]#1+ (rating1[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
-                y =rating2[key]#1+ (rating2[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
+                x =1+ (rating1[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
+                y =1+ (rating2[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
                 sum_x += x
                 sum_x2 += x**2
                 sum_xy += x*y
@@ -207,9 +211,13 @@ if __name__ == "__main__":
     r.loadDataset()
     f = open('pearson_file', 'w')
     recommendations = r.recommend(int(sys.argv[1]))
-    print(r.data[168])
-    print(r.frape_csv)
-    #print(recommendations)
+    recommendations_icons_list = r.recommendations_icons
+    f.write('\n'.join('%s %s' % x for x in recommendations_icons_list)) 
+    f.close()
+    r = recommender(users, metric='manhattan')
+    r.loadDataset()
+    f = open('manhattan_file', 'w')
+    recommendations = r.recommend(int(sys.argv[1]))
     recommendations_icons_list = r.recommendations_icons
     f.write('\n'.join('%s %s' % x for x in recommendations_icons_list)) 
     f.close()
@@ -217,7 +225,6 @@ if __name__ == "__main__":
     r.loadDataset()
     f = open('cosine_file', 'w')
     recommendations = r.recommend(int(sys.argv[1]))
-    #print(recommendations)
     recommendations_icons_list = r.recommendations_icons
     f.write('\n'.join('%s %s' % x for x in recommendations_icons_list)) 
     f.close()

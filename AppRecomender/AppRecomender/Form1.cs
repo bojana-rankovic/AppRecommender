@@ -26,7 +26,6 @@ namespace AppRecomender
             for (int i = 0; i < n; i++)
             {
                 string icon = sr.ReadLine().Split(' ')[0].ToString();
-                MessageBox.Show(icon);
                 PictureBox p = new PictureBox();
                 p.Size = new Size(30, 30);
                 p.Left = g.Left + 20;
@@ -48,11 +47,14 @@ namespace AppRecomender
             StreamReader srPearson = new StreamReader("pearson_file");
             StreamReader srCosine = new StreamReader("cosine_file");
             StreamReader srMinkowski = new StreamReader("minkowski_file");
+            StreamReader srManhattan = new StreamReader("manhattan_file");
+
             positionApps(groupBox1, srPearson, 5);
-            positionApps(groupBox2, srCosine, 5);
+            positionApps(groupBox2, srManhattan, 5);
             positionApps(groupBox3, srMinkowski, 5);
-            
-            
+            positionApps(groupBox4, srCosine, 5);
+
+
 
         }
         private void run_cmd(int user)
@@ -64,8 +66,6 @@ namespace AppRecomender
             string myPythonApp = "app_recommender.py";
 
             // dummy parameters to send Python script
-            
-
 
             // Create new process start info
             ProcessStartInfo myProcessStartInfo = new ProcessStartInfo(python);
@@ -74,8 +74,8 @@ namespace AppRecomender
             myProcessStartInfo.UseShellExecute = false;
             myProcessStartInfo.RedirectStandardOutput = true;
 
-            // start python app with 3 arguments 
-            // 1st arguments is pointer to itself, 2nd and 3rd are actual arguments we want to send
+            // start python app with 2 arguments 
+            // 1st arguments is pointer to itself, 2nd is actual argument we want to send
             myProcessStartInfo.Arguments = myPythonApp + " " + user;
 
             Process myProcess = new Process();
