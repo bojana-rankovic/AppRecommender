@@ -79,15 +79,15 @@ When
 
 With the realization of complete recommender system there were interesting facts that came up regarding the dataset and results. I was able to see that some of the metrics gave similar results, while others went on a completely different path in application recommendation. For instance, user with user id 605 got the same recommendation based on Minkowski and Manhattan similarity function, and all four metrics predicted the Google Search app to be relevant to the user in question.
 
-![alt]()
+![alt](https://github.com/bojana-rankovic/AppRecommender/blob/master/readme/605.PNG?raw=true)
 
 For user 305 again gets suggested to install same apps by both Minkowski and Manhattan, but in this case, Pearson distance suggests same set of applications matching the two mentioned functions. However, cosine in this case is very far from the remaining three functions, and the first match comes on 14th places in recommended items, whichi is Facebook application, but this is not included in the contraint set for recommendations, in our case, 5 applications.
 
-![alt]()
+![alt](https://github.com/bojana-rankovic/AppRecommender/blob/master/readme/305.PNG?raw=true)
 
 We can see one more interesting matching with user 11. All four distance measures have obtained two applications in their recommendation sets that matched all others, Facebook and Gmail. In this case, we don't see complete copy between Minkowski and Manhattan and all other applications are quite different in categories and score. 
 
-![alt]()
+![alt](https://github.com/bojana-rankovic/AppRecommender/blob/master/readme/11.PNG?raw=true)
 
 Based on these results, it can be concluded that the best strategy for obtaining the optimal recommendation set would be a mixture of all these methods, but with massive datasets that would be very inefficient. Cosine similarity is a good option with sparse datasets, and Pearson gives best results when used on normalized vectors. Manhattan and Minkowski in this case proved correct, and could be considered the best option because of the multiple times when they matched each other. 
 
