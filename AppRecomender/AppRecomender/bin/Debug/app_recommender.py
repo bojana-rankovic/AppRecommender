@@ -46,10 +46,9 @@ class recommender:
     
     def cleanDataset(self, frape_csv, meta_csv):
         df = meta_csv.loc[(meta_csv['name']=='unknown')]
-        print(len(df))
         listUnknown = df[df.columns[0]]
         self.frape_csv = frape_csv[~frape_csv['item'].isin(listUnknown)]
-        print(len(self.frape_csv))
+       
    
     #loading the dataset
     def loadDataset(self):
@@ -60,12 +59,12 @@ class recommender:
         
         dtypes_item ={'icon':'str','item':'int64','package':'str','category':'str','name':'str'}    
         self.meta_csv = pd.read_csv('frappe/frappe/meta.csv',sep='\t',dtype = dtypes_item)
-        print(len(self.frape_csv))
+       
         self.cleanDataset(self.frape_csv,self.meta_csv)
         self.frape_csv = self.frape_csv.groupby( [ 'user', 'item'] ).size().to_frame(name = 'count').reset_index()
 
         row_count_frape = len(self.frape_csv)
-        print(row_count_frape)
+        
         row_count_meta = len(self.meta_csv)
         self.maxValue = self.frape_csv['count'].max()
         self.minValue = self.frape_csv['count'].min()
