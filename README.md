@@ -65,7 +65,7 @@ difference between the x values summed with
 the absolute value of the difference
 between the y values
 
-**Minkowski distance ** - a generalization
+**Minkowski distance** - a generalization
 With Minkowski distance metric we can generalize Manhattan Distance and even Euclidean Distance.  
 
 ![alt](https://github.com/bojana-rankovic/AppRecommender/blob/master/readme/minkowski.PNG?raw=true)  
