@@ -1,0 +1,18 @@
+c:\users\nikola\documents\visual studio 2015\Projects\AppRecomender\AppRecomender\bin\Debug\AppRecomender.exe.config
+c:\users\nikola\documents\visual studio 2015\Projects\AppRecomender\AppRecomender\bin\Debug\AppRecomender.exe
+c:\users\nikola\documents\visual studio 2015\Projects\AppRecomender\AppRecomender\bin\Debug\AppRecomender.pdb
+c:\users\nikola\documents\visual studio 2015\Projects\AppRecomender\AppRecomender\obj\Debug\AppRecomender.csprojResolveAssemblyReference.cache
+c:\users\nikola\documents\visual studio 2015\Projects\AppRecomender\AppRecomender\obj\Debug\AppRecomender.Form1.resources
+c:\users\nikola\documents\visual studio 2015\Projects\AppRecomender\AppRecomender\obj\Debug\AppRecomender.Properties.Resources.resources
+c:\users\nikola\documents\visual studio 2015\Projects\AppRecomender\AppRecomender\obj\Debug\AppRecomender.csproj.GenerateResource.Cache
+c:\users\nikola\documents\visual studio 2015\Projects\AppRecomender\AppRecomender\obj\Debug\AppRecomender.exe
+c:\users\nikola\documents\visual studio 2015\Projects\AppRecomender\AppRecomender\obj\Debug\AppRecomender.pdb
+C:\Users\Nikola\Documents\Bojana\MS\Inteligentni\AppRecomender\AppRecomender\bin\Debug\AppRecomender.exe.config
+C:\Users\Nikola\Documents\Bojana\MS\Inteligentni\AppRecomender\AppRecomender\obj\Debug\AppRecomender.exe
+C:\Users\Nikola\Documents\Bojana\MS\Inteligentni\AppRecomender\AppRecomender\obj\Debug\AppRecomender.pdb
+C:\Users\Nikola\Documents\Bojana\MS\Inteligentni\AppRecomender\AppRecomender\bin\Debug\AppRecomender.exe
+C:\Users\Nikola\Documents\Bojana\MS\Inteligentni\AppRecomender\AppRecomender\bin\Debug\AppRecomender.pdb
+C:\Users\Nikola\Documents\Bojana\MS\Inteligentni\AppRecomender\AppRecomender\obj\Debug\AppRecomender.csprojResolveAssemblyReference.cache
+C:\Users\Nikola\Documents\Bojana\MS\Inteligentni\AppRecomender\AppRecomender\obj\Debug\AppRecomender.Form1.resources
+C:\Users\Nikola\Documents\Bojana\MS\Inteligentni\AppRecomender\AppRecomender\obj\Debug\AppRecomender.Properties.Resources.resources
+C:\Users\Nikola\Documents\Bojana\MS\Inteligentni\AppRecomender\AppRecomender\obj\Debug\AppRecomender.csproj.GenerateResource.Cache
