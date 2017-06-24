@@ -54,6 +54,11 @@ namespace AppRecomender
             positionApps(groupBox3, srMinkowski, 5);
             positionApps(groupBox4, srCosine, 5);
 
+            srPearson.Close();
+            srCosine.Close();
+            srMinkowski.Close();
+            srManhattan.Close();
+
 
 
         }

@@ -18,7 +18,7 @@ users = {}
    
 
 class recommender:
-    def __init__(self, data, k=1, metric='pearson', n=10):
+    def __init__(self, data, k=1, metric='pearson', n=5):
         self.data = data
         self.k = k
         self.n = n
@@ -90,22 +90,22 @@ class recommender:
              self.itemId2ItemName[item_id]= title
              self.itemId2ItemIcon[item_id] = self.meta_csv.iloc[i,5] 
        
-    def manhattan(self,rating1, rating2):
+    def manhattan(self, rating1, rating2):
         distance=0
         for key in rating1:
             if key in rating2:
-                x = 1 + (rating1[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
-                y = 1 + (rating2[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
+                x = rating1[key]#1 + (rating1[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
+                y = rating2[key]#1 + (rating2[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
                 distance+=abs(x-y)
         return distance 
     
-    def minkowski(self, rating1, rating2, r=1):
+    def minkowski(self, rating1, rating2, r=2):
         distance = 0
         commonRating = False
         for key in rating1:
             if key in rating2:
-                x = 1 + (rating1[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
-                y = 1 + (rating2[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
+                x = rating1[key]#1 + (rating1[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
+                y = rating2[key]#1 + (rating2[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
                 distance+=pow((x-y),r)
                 commonRating = True
         if commonRating: return pow(distance,1/r)
@@ -118,8 +118,8 @@ class recommender:
         commonRating = False
         for key in rating1:
             if key in rating2:
-                x = 1+ (rating1[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
-                y =1+ (rating2[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
+                x = rating1[key]#1 + ((rating1[key]-self.minValue)*(10-1))/(self.maxValue-self.minValue)
+                y = rating2[key]#1 + ((rating2[key]-self.minValue)*(10-1))/(self.maxValue-self.minValue)
                 sumxx += x*x
                 sumyy += y*y
                 sumxy += x*y
@@ -139,8 +139,8 @@ class recommender:
         n = 0
         for key in rating1:
             if key in rating2:
-                x =1+ (rating1[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
-                y =1+ (rating2[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
+                x =rating1[key] #1 + (rating1[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
+                y =rating2[key] #1 + (rating2[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
                 sum_x += x
                 sum_x2 += x**2
                 sum_xy += x*y
