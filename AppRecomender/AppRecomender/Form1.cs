@@ -50,9 +50,9 @@ namespace AppRecomender
             StreamReader srManhattan = new StreamReader("manhattan_file");
 
             positionApps(groupBox1, srPearson, 5);
-            positionApps(groupBox2, srManhattan, 5);
-            positionApps(groupBox3, srMinkowski, 5);
-            positionApps(groupBox4, srCosine, 5);
+            positionApps(groupBox2, srCosine, 5);
+            positionApps(groupBox3, srManhattan, 5);
+            positionApps(groupBox4, srMinkowski, 5);
 
             srPearson.Close();
             srCosine.Close();

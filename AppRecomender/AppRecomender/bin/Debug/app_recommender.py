@@ -140,8 +140,8 @@ class recommender:
         n = 0
         for key in rating1:
             if key in rating2:
-                x =rating1[key] #1 + (rating1[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
-                y =rating2[key] #1 + (rating2[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
+                x = rating1[key]#1 + (rating1[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
+                y = rating2[key]#1 + (rating2[key]-self.minValue)*(10-1)/(self.maxValue-self.minValue)
                 sum_x += x
                 sum_x2 += x**2
                 sum_xy += x*y
