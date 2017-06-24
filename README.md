@@ -75,9 +75,23 @@ When
 * r  = 2: The formula is Euclidean Distance
 * r  = ∞: Supremum Distance
 
+## 4. Results comparison
 
+With the realization of complete recommender system there were interesting facts that came up regarding the dataset and results. I was able to see that some of the metrics gave similar results, while others went on a completely different path in application recommendation. For instance, user with user id 605 got the same recommendation based on Minkowski and Manhattan similarity function, and all four metrics predicted the Google Search app to be relevant to the user in question.
 
-## 4. Technical realization
+![alt]()
+
+For user 305 again gets suggested to install same apps by both Minkowski and Manhattan, but in this case, Pearson distance suggests same set of applications matching the two mentioned functions. However, cosine in this case is very far from the remaining three functions, and the first match comes on 14th places in recommended items, whichi is Facebook application, but this is not included in the contraint set for recommendations, in our case, 5 applications.
+
+![alt]()
+
+We can see one more interesting matching with user 11. All four distance measures have obtained two applications in their recommendation sets that matched all others, Facebook and Gmail. In this case, we don't see complete copy between Minkowski and Manhattan and all other applications are quite different in categories and score. 
+
+![alt]()
+
+Based on these results, it can be concluded that the best strategy for obtaining the optimal recommendation set would be a mixture of all these methods, but with massive datasets that would be very inefficient. Cosine similarity is a good option with sparse datasets, and Pearson gives best results when used on normalized vectors. Manhattan and Minkowski in this case proved correct, and could be considered the best option because of the multiple times when they matched each other. 
+
+## 5. Technical realization
 This application is written both in Python and C#. 
 The pandas package has been imported for reading, cleaning and manipulating the csv file with the loadDataSet and cleanDataset functions inside the recommender class.   
 The overall usage history of application is recorded inside the dictionary which, because of its hashable  nature, allowed to join together users and all of their used apps in a most convenient form for recommendation.   
@@ -85,13 +99,13 @@ The recommender class contains the function which computes the nearest neighbors
 
 Python script is being callend inside C# Form application with new process, and C#, after the execution of the scrit continues to read the needed results. Recommended apps are them presented using picture boxes.
 
-## 5. Acknowledgements
+## 6. Acknowledgements
 This application has been developed as a part of the project assignment for the subject Intelligent Systems at the Faculty of Organization Sciences, University of Belgrade, Serbia.  
 The literature that has been used in realization of this project can be found here:  
 1. *A programmer's guide to data mining* http://guidetodatamining.com/  
 2. *Programming collective intelligence* by Toby Segaran  
 
-## 6. Licence
+## 7. Licence
 This software is licensed under the MIT License.  
 The MIT License (MIT)  
 Copyright (c) 2017 Bojana Ranković - bojana.nu@gmail.com  
